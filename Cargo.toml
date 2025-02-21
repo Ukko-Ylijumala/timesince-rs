@@ -1,5 +1,5 @@
 [package]
-name = "timesince-rs"
+name = "timesince"
 version = "0.3.0"
 authors = ["Mikko Tanner <mikko.tanner@gmail.com>"]
 description = "Time since UNIX epoch and time-related datatype conversions"
