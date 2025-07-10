@@ -1,6 +1,6 @@
 [package]
 name = "timesince"
-version = "0.3.0"
+version = "0.3.1"
 authors = ["Mikko Tanner <mikko.tanner@gmail.com>"]
 description = "Time since UNIX epoch and time-related datatype conversions"
 readme = "README.md"
@@ -10,3 +10,7 @@ categories = ["algorithms"]
 keywords = ["time", "date", "duration", "epoch", "timestamp", "conversion"]
 publish = false
 edition = "2021"
+
+[dependencies.serde]
+version = "1.0"
+features = ["derive"]

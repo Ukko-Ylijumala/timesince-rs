@@ -1,6 +1,7 @@
-// Copyright (c) 2024 Mikko Tanner. All rights reserved.
+// Copyright (c) 2024-2025 Mikko Tanner. All rights reserved.
 // License: MIT OR Apache-2.0
 
+use serde::{Deserialize, Serialize};
 use std::{
     cmp::Ordering,
     fmt::{self, Display, Formatter},
@@ -35,7 +36,7 @@ const SECONDS_IN_HOUR: u32 = 3600;
 ///
 /// Please note that we discard sub-second precision when converting
 /// from `Instant` and `SystemTime`, hence these conversions are lossy.
-#[derive(Debug, Clone, Hash, PartialEq, Eq, PartialOrd, Ord)]
+#[derive(Debug, Clone, Hash, PartialEq, Eq, PartialOrd, Ord, Serialize, Deserialize)]
 pub struct SecondsSinceEpoch(u64);
 
 impl SecondsSinceEpoch {
@@ -295,7 +296,7 @@ impl Display for SecondsSinceEpoch {
 ///
 /// This is a version of `SecondsSinceEpoch` with sub-second precision,
 /// with the inner value being a `f64` instead of a `u64`.
-#[derive(Debug, Clone, PartialOrd)]
+#[derive(Debug, Clone, PartialOrd, Serialize, Deserialize)]
 pub struct TimeSinceEpoch(f64);
 
 impl TimeSinceEpoch {
