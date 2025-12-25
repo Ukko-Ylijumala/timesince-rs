@@ -586,7 +586,7 @@ impl Display for TimeSinceEpoch {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         let (y, m, d, hour, min, sec) = year_month_day_h_m_s(self.0 as u64);
         let fract: u32 = (self.0.fract() * 1_000.001) as u32; // 0.001 to round up
-        write!(f, "{y}-{:02}-{:02} {:02}:{:02}:{:02}.{:3}", m, d, hour, min, sec, fract)
+        write!(f, "{y}-{:02}-{:02} {:02}:{:02}:{:02}.{:03}", m, d, hour, min, sec, fract)
     }
 }
 
@@ -885,6 +885,9 @@ mod tests {
         tse += 0.4197; // 0.9994
         let formatted: String = format!("{}", tse);
         assert_eq!(formatted, "2009-12-31 15:20:31.999");
+        tse -= 0.998; // 0.0014
+        let formatted: String = format!("{}", tse);
+        assert_eq!(formatted, "2009-12-31 15:20:31.001");
     }
 
     #[test]

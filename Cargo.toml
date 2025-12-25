@@ -1,6 +1,6 @@
 [package]
 name = "timesince"
-version = "0.3.1"
+version = "0.3.2"
 authors = ["Mikko Tanner <mikko.tanner@gmail.com>"]
 description = "Time since UNIX epoch and time-related datatype conversions"
 readme = "README.md"
